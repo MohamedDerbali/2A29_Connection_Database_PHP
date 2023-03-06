@@ -12,7 +12,7 @@ try {
     ]);
     // pour fermer la connection
     // $pdo = null;
-    echo 'connected to database successfully!';
+    // echo 'connected to database successfully!';
 } catch (PDOException $e) {
     echo 'connection failed! '.$e->getMessage();
 }
