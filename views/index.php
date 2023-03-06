@@ -2,13 +2,14 @@
 require_once "../models/connection.php";
 require "../controllers/userC.php";
 require "../models/user.php";
+$userC = new userC();
 if (isset($_POST) && !empty($_POST)) {
     $user = new user($_POST["nom"], $_POST["prenom"]);
     $user->setAge($_POST["age"]);
-    $userC = new userC();
     $userC->addUser($user, $pdo);
 }
-
+$usersList = $userC->displayUsers($pdo);
+var_dump($usersList);
 ?>
 <!DOCTYPE html>
 <html lang="en">

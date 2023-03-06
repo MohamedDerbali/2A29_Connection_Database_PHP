@@ -11,7 +11,16 @@ class userC{
             $e->getMessage();
         }
     }
-    public function displayUsers(){}
+    public function displayUsers($pdo){
+        try {
+            $query = $pdo->query("SELECT * FROM user");
+            $query->execute();
+            var_dump($query->fetchALL());
+            return $query->fetchALL();
+        } catch (PDOException $e) {
+            $e->getMessage();
+        }
+    }
     public function deleteUser(){}
     public function updateUser(){}
 }
